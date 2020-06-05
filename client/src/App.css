@@ -1,0 +1,10 @@
+html {
+  overflow-y: auto /*Hides the default Vertical Scrollbar*/
+}
+
+.home-logo {
+  color: #3273DC;
+  text-shadow: 2px 2px 2px grey;
+  font-size: 20rem;
+}
+
