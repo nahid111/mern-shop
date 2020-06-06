@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -13,6 +14,7 @@ const Dashboard = ({ auth: { user }}) => {
             <div className="container has-text-centered">
               <h1 className="title">Welcome {user && user.name}</h1>
               <h2 className="subtitle">This is a Protected Route</h2>
+              <Link to="/categories" className="has-text-danger">Categories</Link>
             </div>
           </div>
         </div>

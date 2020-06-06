@@ -91,14 +91,8 @@ export const register = (data) => async (dispatch) => {
 //                         Verify Email
 //======================================================================
 export const verifyEmail = (token) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  
   try {
-    await axios.get("/api/v1/auth/verifyemail/"+token, config);
+    await axios.get("/api/v1/auth/verifyemail/"+token);
     dispatch({ type: VERIFY_EMAIL });
 
   } catch (err) {
