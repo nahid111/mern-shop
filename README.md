@@ -9,7 +9,7 @@ MERN stack Ecommerce / Shopping-Cart
 - [x] Forgot/Reset Password
 - [x] image Upload
 - [ ] Pagination
-- [ ] Search
+- [ ] Live Search
 - [ ] Filter
 - [ ] Cart
 - [ ] Payment Gateway (Stripe)

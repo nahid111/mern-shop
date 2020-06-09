@@ -1,0 +1,17 @@
+html {
+	scroll-behavior: smooth
+}
+
+.sticky	{
+	position: sticky;
+  	top: 30px;
+}
+
+.cart table td{
+    font-size: 0.8rem;
+}
+
+.product-card .card-footer-item a{
+    font-size: 0.8rem!important;
+}
+
