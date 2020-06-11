@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
+import Products from './products/Products.jsx';
 
 const Home = (props) => {
   return (
     <Fragment>
-      <figure className="image is-1by1">
-        <img src="https://picsum.photos/id/1068/480" />
-      </figure>
+      <Products/>
     </Fragment>
   );
 };

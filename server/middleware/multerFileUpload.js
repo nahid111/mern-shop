@@ -12,7 +12,7 @@ const filterOptions = (req, file, cb) => {
   if (file.size > process.env.MAX_FILE_SIZE) {
     return cb(new ErrorResponse(400, `Out of limit`), false);
   }
-  if (file.mimetype==='image/png' || file.mimetype==='image/jpg' || file.mimetype==='image/jpeg') {
+  if (file.mimetype==='image/png' || file.mimetype==='image/jpg' || file.mimetype==='image/jpeg' || file.mimetype==='image/svg+xml') {
     return cb(null, true);
   }
   cb(new ErrorResponse(400, `Please upload an image file`), false);

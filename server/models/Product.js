@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const ProductSchema = new mongoose.Schema(
+const ProductSchema = new Schema(
   {
     category: {
       type: Schema.Types.ObjectId,
@@ -14,7 +15,7 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    image: {
+    picture: {
       type: String,
     },
     quantity: {
