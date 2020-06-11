@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../store/actions/auth";
-import PropTypes from "prop-types";
+import {viewCart} from '../../store/actions/cart';
 
 
-const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
+const NavigationBar = ({ auth: {user, isAuthenticated}, logout, viewCart }) => {
 
   const [navMenuIsActive, toggleNavMenu] = useState(false);
 
+  const adminLinks = (
+    <Fragment>
+      <Link to="/categories" className="navbar-item">
+        <span>Categories</span>
+      </Link>
+      <Link to="/create-products" className="navbar-item">
+        <span>Create Products</span>
+      </Link>
+    </Fragment>
+  );
+
   const authLinks = (
-    <div className="navbar-end">
+    <Fragment>
       <div className="navbar-item has-dropdown is-hoverable">
         <a className="navbar-link" href="#!">
           <figure className="image is-32x32">
@@ -19,7 +31,7 @@ const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
               src={
                 user && user.avatar
                   ? `http://localhost:5000/uploads/${user.avatar}`
-                  : "https://via.placeholder.com/32x32"
+                  : "https://avatars.dicebear.com/api/bottts/5.svg"
               }
               alt="avatar"
             />
@@ -28,12 +40,19 @@ const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
         </a>
 
         <div className="navbar-dropdown">
+          <Link className="navbar-item" to="/dashboard">
+            <span className="icon is-small">
+              <i className="fas fa-chart-line"></i>
+            </span>
+            <span>Dashboard</span>
+          </Link>
           <Link to="/profile" className="navbar-item">
             <span className="icon is-small">
               <i className="fas fa-cog"></i>
             </span>
             <span>Profile</span>
           </Link>
+          {user && user.role === "admin" && adminLinks}
           <a href="#!" className="navbar-item" onClick={logout}>
             <span className="icon is-small">
               <i className="fas fa-sign-out-alt"></i>
@@ -42,11 +61,11 @@ const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
           </a>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 
   const guestLinks = (
-    <div className="navbar-end">
+    <Fragment>
       <Link to="/register" className="navbar-item has-text-danger">
         <span className="icon">
           <i className="fas fa-user-plus"></i>
@@ -59,19 +78,19 @@ const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
         </span>
         <span>Login</span>
       </Link>
-    </div>
+    </Fragment>
   );
 
 
   return (
     <nav
-      className="navbar is-link"
+      className="navbar has-background-link-light"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          <i className="fab fa-react"></i>
+          <i className="fab fa-pied-piper"></i>
         </Link>
 
         <a
@@ -99,12 +118,20 @@ const NavigationBar = ({ auth: {user, isAuthenticated, loading}, logout }) => {
           <Link className="navbar-item" to="/">
             Home
           </Link>
-          <Link className="navbar-item" to="/dashboard">
-            Dashboard
+          <Link className="navbar-item" to="/products">
+            Products
           </Link>
         </div>
 
-        {isAuthenticated ? authLinks : guestLinks}
+        <div className="navbar-end">
+          <a href="#!" className="navbar-item" onClick={viewCart}>
+            <span className="icon">
+              <i className="fas fa-shopping-cart"></i>
+            </span>
+            <span className="tag has-text-danger-dark">10</span>
+          </a>
+          {isAuthenticated ? authLinks : guestLinks}
+        </div>
       </div>
     </nav>
   );
@@ -122,4 +149,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, { logout })(NavigationBar);
+export default connect(mapStateToProps, { logout, viewCart })(NavigationBar);

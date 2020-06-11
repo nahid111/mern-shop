@@ -15,14 +15,12 @@ const Alert = (props) => {
 
   return props.alerts.map((alert) => (
     <div className="block" key={alert.id}>
-      <div className="container">
-        <div className={`notification is-${alert.alertType}`}>
-          <button
-            className="delete"
-            onClick={(e) => remove_alert(alert.id)}
-          ></button>
-          {alert.msg}
-        </div>
+      <div className={`notification is-${alert.alertType} is-light isoutlined`}>
+        <button
+          className="delete"
+          onClick={(e) => remove_alert(alert.id)}
+        ></button>
+        {alert.msg}
       </div>
     </div>
   ));

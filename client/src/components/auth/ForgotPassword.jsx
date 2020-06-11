@@ -20,61 +20,56 @@ const ForgotPassword = ({ auth: { isAuthenticated, loading }, forgotPassword }) 
 
   return (
     <Fragment>
-      <section className="section">
-        <div className="container">
-          <div className="block">
-            <div className="columns">
-              <div className="column is-6 is-offset-3">
-                <h1 className="title has-text-primary">Forgot Password</h1>
-                <p className="subtitle">
-                  <span className="icon">
-                    <i className="fas fa-key"></i>
-                  </span>
-                  <span>Submit your email to reset the password</span>
-                </p>
-                <hr />
+      <div className="columns">
+        <div className="column is-6 is-offset-3">
+          <h1 className="title has-text-primary">Forgot Password</h1>
+          <p className="subtitle">
+            <span className="icon">
+              <i className="fas fa-key"></i>
+            </span>
+            <span>Submit your email to reset the password</span>
+          </p>
+          <hr />
 
-                <form onSubmit={(e) => onSubmit(e)}>
-                  <div className="field">
-                    <label className="label">Email</label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <div className="control">
-                      <button className="button is-primary">Submit</button>
-                    </div>
-                  </div>
-                </form>
-
-                <hr />
+          <form onSubmit={(e) => onSubmit(e)}>
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
             </div>
-          </div>
 
-          <div className="block has-text-centered">
-            <p>
-              Don't have an account?{" "}
-              <Link to="/register" className="has-text-danger">Sign Up</Link>
-            </p>
-            <p>
-              Already have an account? <Link to="/login">Sign in</Link>
-            </p>
-          </div>
+            <div className="field">
+              <div className="control">
+                <button className="button is-primary is-outlined is-light">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
 
-          {loading && (<Spinner/>)}
-
+          <hr />
         </div>
-      </section>
+      </div>
+
+      {loading && <Spinner />}
+
+      <p className="has-text-centered">
+        Don't have an account?{" "}
+        <Link to="/register" className="has-text-danger">
+          Sign Up
+        </Link>
+      </p>
+      <p className="has-text-centered">
+        Already have an account? <Link to="/login">Sign in</Link>
+      </p>
     </Fragment>
   );
 };

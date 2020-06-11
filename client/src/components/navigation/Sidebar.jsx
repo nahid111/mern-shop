@@ -13,19 +13,20 @@ const Sidebar = ({ categories, loadCategories }) => {
 
   return (
     <Fragment>
-      <section class="main-content columns is-fullheight has-background-grey-light">
-        <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
-          <p class="menu-label is-hidden-touch">Categories</p>
-          <ul class="menu-list">
-            {categories.map((item) => (
-              <li key={item._id}>
-                <Link to="#" className="">{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
-
-      </section>
+      <aside className="menu">
+        <p className="menu-label">
+          <b>Categories</b>
+        </p>
+        <ul id="menu" className="menu-list">
+          {categories.map((item) => (
+            <li key={item._id}>
+              <Link to="#" className="">
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </aside>
     </Fragment>
   );
 };

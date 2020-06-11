@@ -45,91 +45,85 @@ const Register = (props) => {
     // Return Component
     return (
       <Fragment>
-        <section className="section">
-          <div className="container">
-            <div className="block">
-              <div className="columns">
-                <div className="column is-6 is-offset-3">
-                  <h1 className="title has-text-danger">Sign Up</h1>
-                  <p className="subtitle">
-                    <span className="icon">
-                      <i className="fas fa-user"></i>
-                    </span>
-                    <span>Create Your Account</span>
-                  </p>
-                  <hr />
+        <div className="columns">
+          <div className="column is-6 is-offset-3">
+            <h1 className="title has-text-danger">Sign Up</h1>
+            <p className="subtitle">
+              <span className="icon">
+                <i className="fas fa-user"></i>
+              </span>
+              <span>Create Your Account</span>
+            </p>
+            <hr />
 
-                  <form onSubmit={(e) => onSubmit(e)}>
-                    <div className="field">
-                      <label className="label">Name</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={(e) => onChange(e)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="field">
-                      <label className="label">Email</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          type="text"
-                          name="email"
-                          value={formData.email}
-                          onChange={(e) => onChange(e)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="field">
-                      <label className="label">Password</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          type="password"
-                          name="password"
-                          minLength="6"
-                          value={formData.password}
-                          onChange={(e) => onChange(e)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="field">
-                      <label className="label">Confirm Password</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          type="password"
-                          name="confirmPassword"
-                          minLength="6"
-                          value={formData.confirmPassword}
-                          onChange={(e) => onChange(e)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="field">
-                      <div className="control">
-                        <button className="button is-danger">Register</button>
-                      </div>
-                    </div>
-                  </form>
-                  <hr />
+            <form onSubmit={(e) => onSubmit(e)}>
+              <div className="field">
+                <label className="label">Name</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => onChange(e)}
+                  />
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div className="block has-text-centered">
-            Already have an account? <Link to="/login">Sign in</Link>
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="password"
+                    name="password"
+                    minLength="6"
+                    value={formData.password}
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <label className="label">Confirm Password</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="password"
+                    name="confirmPassword"
+                    minLength="6"
+                    value={formData.confirmPassword}
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <div className="control">
+                  <button className="button is-outlined is-light is-danger">Register</button>
+                </div>
+              </div>
+            </form>
+            <hr />
           </div>
-        </section>
+        </div>
+
+        <div className="block has-text-centered">
+          Already have an account? <Link to="/login">Sign in</Link>
+        </div>
       </Fragment>
     );
 }

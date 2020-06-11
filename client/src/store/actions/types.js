@@ -16,4 +16,8 @@ export const LOGOUT = 'LOGOUT';
 
 export const CATEGORY_LOADED = 'CATEGORY_LOADED';
 
+export const CART_LOADED = 'CART_LOADED';
+export const VIEW_CART = 'VIEW_CART';
+export const HIDE_CART = 'HIDE_CART';
+
 

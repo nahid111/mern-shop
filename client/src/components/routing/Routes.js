@@ -13,6 +13,7 @@ import ForgotPassword from '../auth/ForgotPassword.jsx';
 import ResetPassword from '../auth/ResetPassword.jsx';
 import VerifyEmail from '../auth/VerifyEmail.jsx';
 import Categories from '../Categories.jsx';
+import Products from '../products/Products.jsx';
 
 
 const Routes = props => {
@@ -29,6 +30,7 @@ const Routes = props => {
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/categories" component={Categories} />
+        <Route exact path="/products" component={Products} />
         <Route component={NotFound} />
       </Switch>
     </Fragment>

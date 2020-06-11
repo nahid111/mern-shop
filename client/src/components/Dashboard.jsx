@@ -7,19 +7,21 @@ import { connect } from "react-redux";
 const Dashboard = ({ auth: { user }}) => {
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="hero is-large is-dark">
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              <h1 className="title">Welcome {user && user.name}</h1>
-              <h2 className="subtitle">This is a Protected Route</h2>
-              <Link to="/categories" className="has-text-danger">Categories</Link>
-            </div>
-          </div>
+    <div className="hero is-light is-bold">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <h1 className="title">Welcome {user && user.name}</h1>
+          <h2 className="subtitle">This is a Protected Route</h2>
+          {user
+            ? user.role === "admin" && (
+                <Link to="/categories" className="has-text-danger">
+                  Categories
+                </Link>
+              )
+            : ""}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
